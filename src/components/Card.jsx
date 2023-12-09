@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { download } from '../assets/index-11410b7'
+import { download } from '../assets/index-411410b7'
 import { downloadImage } from '../utils'
 
 const Card = ({ public_id, name, prompt, photo}) => {
