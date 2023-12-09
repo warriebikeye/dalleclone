@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate }  from 'react-router-dom'
 
-import { preview } from '../assets';
+import { preview } from '../assets/index-11410b7';
 import { getRandomPrompt } from '../utils';
 import { FormField, Loader } from '../components';
 
