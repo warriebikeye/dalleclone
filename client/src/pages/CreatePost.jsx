@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate }  from 'react-router-dom'
 
-import { preview } from '../assets/index-411410b7';
+import { preview } from '../assets';
 import { getRandomPrompt } from '../utils';
 import { FormField, Loader } from '../components';
 
@@ -21,7 +21,7 @@ const generateImage = async () => {
 if(form.prompt){
   try {
     setGeneratingImg(true);
-    const response = await fetch('https://dclonebcknd.onrender.com/api/v1/dalle', {
+    const response = await fetch('http://localhost:8080/api/v1/dalle', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ prompt: form.prompt}),
@@ -47,7 +47,7 @@ if(form.prompt && form.photo){
   setLoading(true);
 
   try {
-    const response = await fetch('https://dclonebcknd.onrender.com/api/v1/post', {
+    const response = await fetch('http://localhost:8080/api/v1/post', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -80,8 +80,7 @@ setForm({ ...form, prompt: randonPrompt})
   return (
     <section className='max-w-7xl mx-auto'>
       <div>
-      <p className='mt-2 text=[#666e75] text-[14px] max-w[500px]'>
-         <strong className='font-extrabold text-[#6469ff] text-[32px]'>Create</strong> your own <strong className='font-extrabold text-[#222328] text-[32px]'><br/>imaginative and visually stunning images</strong><br/> through <strong className='font-extrabold text-[#222328] text-[32px]'><span className='text-[#6469ff]'>warris</span> IMAGE Generation AI</strong> and share them with the <strong className='font-extrabold text-[#222328] text-[32px]'>Community</strong></p>
+      <p className='mt-2 text=[#666e75] text-[14px] max-w[500px]'> <strong className='font-extrabold text-[#6469ff] text-[32px]'>Create</strong> your own <strong className='font-extrabold text-[#222328] text-[32px]'><br/>imaginative and visually stunning images</strong><br/> through <strong className='font-extrabold text-[#222328] text-[32px]'><span className='text-[#6469ff]'>warris</span> DALL-E AI Clone</strong> and share them with the <strong className='font-extrabold text-[#222328] text-[32px]'>Community</strong></p>
       </div>
       <form className='mt-16 max-w-3xl' onSubmit={handleSubmit}>
         <div className='flex flex-col gap-5'>

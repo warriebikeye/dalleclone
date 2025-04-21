@@ -1,7 +1,7 @@
 import FileSaver from 'file-saver';
 
 import { surpriseMePrompts } from '../constants';
-import { download } from '../assets/index-411410b7';
+import { download } from '../assets';
 
 export function getRandomPrompt(prompt)
 {

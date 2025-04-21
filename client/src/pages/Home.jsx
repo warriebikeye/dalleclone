@@ -4,7 +4,7 @@ import {Loader, Card, FormField} from '../components';
 
 const RenderCards = ({ data, title }) => {
   if (data?.length > 0) {
-  return data.map((post) => <Card key={post.public_id} {...post} />);
+   //return data.map((post) => <Card key={post._id} {...post} />);
    console.log(data);
   }
 
@@ -15,7 +15,7 @@ return (
 
 const Home = () => {
   const [loading, setLoading] =  useState(false);
-  const [allPosts, setAllPosts] = useState([ ]);
+  const [allPosts, setAllPosts] = useState([null]);
 
   
   const [searchText, setsearchText] = useState('');
@@ -27,18 +27,18 @@ const fetchPosts = async () => {
 setLoading(true);
 
 try {
-  const response = await fetch('https://dclonebcknd.onrender.com/api/v1/post', {
+  const response = await fetch('http://localhost:8080/api/v1/post', {
     method: 'GET',
    headers: {
       'Content-Type': 'application/json',
    },
   }
   );
+
  if(response.ok){
    const result = await response.json();
 
     setAllPosts(result.data.reverse());
-    console.log(result);
  }
 } catch (error) {
   alert(error)
