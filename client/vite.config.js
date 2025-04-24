@@ -10,6 +10,6 @@ export default defineConfig({
     port: process.env.PORT || 4173, // Use the PORT environment variable or default to 4173
   },
   preview: {
-    allowedHosts: ['https://dalle-frontend-m4oa.onrender.com'], // Add your Render frontend domain here
+    allowedHosts: ['dalle-frontend-m4oa.onrender.com'], // Add your Render frontend domain here
   },
 })
