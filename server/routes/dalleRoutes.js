@@ -12,21 +12,14 @@ const openai = new OpenAI({
 
 router.route('/').post(async (req, res) => {
   try {
-    const { prompt } = req.body;
-
-    if (!prompt || typeof prompt !== 'string') {
-      return res.status(400).json({ error: 'Prompt must be a valid string.' });
-    }
-  
+    const { uprompt } = req.body;
+    
     const aiResponse = await openai.images.generate({
-      model: 'dall-e-3',
-      prompt:prompt,
+      prompt: "an astronaut lounging in a tropical resort in space, vaporwave",
       n: 1,
       size: '1024x1024',
       response_format: 'b64_json',
     });
-
-    console.log("AI Response:", aiResponse);
 
     const image = aiResponse.data[0]?.b64_json;
 

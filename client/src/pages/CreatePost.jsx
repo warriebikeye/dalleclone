@@ -21,15 +21,15 @@ const generateImage = async () => {
 if(form.prompt){
   try {
     setGeneratingImg(true);
-    const response = await fetch('http://localhost:8080/api/v1/dalle', {
+    const response = await fetch('http://localhost:8080/api/v1/gemini', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ prompt: form.prompt}),
     })
 
     const data = await response.json();
-    if (data.photo) {
-      setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}`})
+    if (data.image) {
+      setForm({ ...form, photo: data.image });
     }
     
   } catch (error) {

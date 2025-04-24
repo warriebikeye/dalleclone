@@ -8,6 +8,7 @@ import router from './router.js';
 
 import nupostRoutes from './routes/nupostRoutes.js';
 import dalleRoutes from './routes/dalleRoutes.js';
+import geminiRoutes from './routes/geminiRoutes.js';
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(express.json({ limit: '50mb'}));
 app.use('/api', router);
 app.use('/api/v1/post', nupostRoutes);
 app.use('/api/v1/dalle', dalleRoutes);
+app.use('/api/v1/gemini', geminiRoutes);
 
 app.get('/', async (req, res) => {
     res.send('Hello from Warris DALL-E');
