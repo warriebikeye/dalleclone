@@ -1,7 +1,23 @@
 import React from 'react'
 
 import { download } from '../assets'
+import { deleteicon } from '../assets'
 import { downloadImage } from '../utils'
+const deleteImage = async (id) => {
+  try {
+    const response = await fetch(`https://dalle-backend-s4lh.onrender.com/api/v1/post/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    await response.json();
+    navigate('/');
+  } catch (error) {
+    alert(error);
+  }
+};
 
 const Card = ({ _id, name, prompt, photo}) => {
   return (
@@ -29,6 +45,10 @@ const Card = ({ _id, name, prompt, photo}) => {
         <button type='button' onClick={() => downloadImage(_id, photo)}
         className='outline-none bg-transparent border-none'>
           <img src={download} alt='download' className='w-6 h-6 object-contain invert'/>
+        </button>
+        <button type='button' onClick={() => deleteImage(_id, photo)}
+        className='outline-none bg-transparent border-none'>
+          <img src={deleteicon} alt='download' className='w-6 h-6 object-contain invert'/>
         </button>
         </div>
       </div>

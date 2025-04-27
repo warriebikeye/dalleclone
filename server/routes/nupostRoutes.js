@@ -44,4 +44,20 @@ res.status(201).json({ success: true, data: newPost });
     }
 });
 
+router.route('/:id').delete(async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const post = await Post.findById(id);
+        if (!post) {
+            return res.status(404).json({ success: false, message: 'Post not found' });
+        }
+        await Post.findByIdAndDelete(id);
+
+        res.status(200).json({ success: true, message: 'Post deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+});
+
 export default router;
