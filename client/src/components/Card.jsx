@@ -3,6 +3,8 @@ import React from 'react'
 import { download } from '../assets'
 import { deleteicon } from '../assets'
 import { downloadImage } from '../utils'
+
+
 const deleteImage = async (id) => {
   try {
     const response = await fetch(`https://dalle-backend-s4lh.onrender.com/api/v1/post/${id}`, {
