@@ -1,9 +1,10 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom';
 import { download } from '../assets'
 import { deleteicon } from '../assets'
 import { downloadImage } from '../utils'
 
+const navigate = useNavigate();
 
 const deleteImage = async (id) => {
   try {
@@ -15,7 +16,7 @@ const deleteImage = async (id) => {
     });
 
     await response.json();
-    navigate('/');
+    navigate('/Home');
   } catch (error) {
     alert(error);
   }
