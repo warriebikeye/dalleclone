@@ -43,12 +43,15 @@ const Card = ({ _id, name, prompt, photo }) => {
             </div>
             <p className='text-white text-sm'>{name}</p>
           </div>
-          <button type='button' onClick={() => downloadImage(_id, photo)} className='outline-none bg-transparent border-none'>
-            <img src={download} alt='download' className='w-6 h-6 object-contain invert' />
-          </button>
-          <button type='button' onClick={() => deleteImage(_id)} className='outline-none bg-transparent border-none'>
-            <img src={deleteicon} alt='delete' className='w-6 h-6 object-contain invert' />
-          </button>
+          <div className="flex gap-2 justify-start items-center">
+  <button type='button' onClick={() => downloadImage(_id, photo)} className='outline-none bg-transparent border-none'>
+    <img src={download} alt='download' className='w-6 h-6 object-contain invert' />
+  </button>
+  <button type='button' onClick={() => deleteImage(_id)} className='outline-none bg-transparent border-none'>
+    <img src={deleteicon} alt='delete' className='w-6 h-6 object-contain invert' />
+  </button>
+</div>
+
         </div>
       </div>
     </div>
