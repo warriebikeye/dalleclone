@@ -21,7 +21,7 @@ const generateImage = async () => {
 if(form.prompt){
   try {
     setGeneratingImg(true);
-    //https://dalle-backend-s4lh.onrender.com/ vs http://localhost:8080/api/v1/gemini
+    //https://dalle-backend-s4lh.onrender.com/ vs http://localhost:8080/
     const response = await fetch('https://dalle-backend-s4lh.onrender.com/api/v1/gemini', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
